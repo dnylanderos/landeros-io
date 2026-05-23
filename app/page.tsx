@@ -1,3 +1,7 @@
+/**
+ * Default Homepage
+ */
+
 "use client"
 
 import * as React from "react"
@@ -5,38 +9,67 @@ import Link from "next/link"
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { House } from "lucide-react"
 
-export default function Page() {
+/**
+ * The home function
+ * @returns Homepage component
+ */
+export default function Home() {
   return (
     <div className="flex min-h-svh p-6">
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>
           <NavigationMenu>
             <NavigationMenuList>
+              {/* home */}
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
                   className={navigationMenuTriggerStyle()}
                 >
-                  <a href="#projects">Projects</a>
+                  <Link href="/">
+                    <House />
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              {/* about */}
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <Link href="/about">About</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              {/* projects */}
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <Link href="/projects">Projects</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              {/* gallery */}
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <Link href="/gallery">Gallery</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
-          <div id="projects">
-            <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
-              Projects
-            </h1>
-            <p className="leading-7 not-first:mt-6">Project details</p>
-          </div>
         </div>
       </div>
     </div>
